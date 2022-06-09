@@ -54,6 +54,11 @@ namespace AssetRipper.Core.Parser.Files.BundleFile
 					ReadRawWebData(dataStream, metadataOffset);//also ReadBlocksAndDirectory
 					break;
 
+				case BundleType.ENCR:
+					long mihoyoHeaderSize = stream.Position - basePosition;
+					ReadFileStreamMetadata(stream, basePosition);//ReadBlocksInfoAndDirectory
+					ReadFileStreamData(stream, basePosition, mihoyoHeaderSize);//ReadBlocks and ReadFiles
+					break;
 				case BundleType.UnityFS:
 					long headerSize = stream.Position - basePosition;
 					ReadFileStreamMetadata(stream, basePosition);//ReadBlocksInfoAndDirectory

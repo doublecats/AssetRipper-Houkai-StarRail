@@ -5,6 +5,7 @@
 		UnityArchive,//not supported
 		UnityRaw,
 		UnityWeb,
+		ENCR,
 		UnityFS,
 	}
 

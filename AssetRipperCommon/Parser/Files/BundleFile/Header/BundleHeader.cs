@@ -35,16 +35,22 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Header
 		{
 			string signature = reader.ReadStringZeroTerm();
 			Signature = ParseSignature(signature);
-			Version = (BundleVersion)reader.ReadInt32();
-			UnityWebBundleVersion = reader.ReadStringZeroTerm();
-			string engineVersion = reader.ReadStringZeroTerm();
-			UnityWebMinimumRevision = UnityVersion.Parse(engineVersion);
+			if (Signature != BundleType.ENCR)
+			{
+				Version = (BundleVersion)reader.ReadInt32();
+				UnityWebBundleVersion = reader.ReadStringZeroTerm();
+				string engineVersion = reader.ReadStringZeroTerm();
+				UnityWebMinimumRevision = UnityVersion.Parse(engineVersion);
+			}
 
 			switch (Signature)
 			{
 				case BundleType.UnityRaw:
 				case BundleType.UnityWeb:
 					RawWeb = new BundleRawWebHeader(reader, Version);//ReadHeaderAndBlocksInfo
+					break;
+				case BundleType.ENCR:
+					FileStream = new BundleFileStreamHeader(reader);//ReadHoukaiStarRailHeader
 					break;
 				case BundleType.UnityFS:
 					FileStream = new BundleFileStreamHeader(reader);//ReadHeader
@@ -73,6 +79,9 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Header
 					return true;
 				case nameof(BundleType.UnityRaw):
 					type = BundleType.UnityRaw;
+					return true;
+				case nameof(BundleType.ENCR):
+					type = BundleType.ENCR;
 					return true;
 				case nameof(BundleType.UnityFS):
 					type = BundleType.UnityFS;
