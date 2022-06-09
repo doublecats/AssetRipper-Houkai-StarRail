@@ -1,0 +1,14 @@
+**/.vs/
+**/*.csproj.user
+packages/
+**/packages.config
+obj
+Bins/
+Test/
+bin
+*.user
+.idea
+**/build/
+.vscode
+*.blend1
+launchSettings.json

@@ -1,0 +1,137 @@
+{
+	"Templates" : [
+		{
+			"TemplateName" : "Default",
+			"RequiredProperties" : []
+		},
+		{
+			"TemplateName" : "SingleTexture",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				}]
+		},
+		{
+			"TemplateName" : "SingleColor",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_Color",
+					"PropertyTypeName" : "Color"
+				}]
+		},
+		{
+			"TemplateName" : "TransparentDiffuse",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Color",
+					"PropertyTypeName" : "Color"
+				}]
+		},
+		{
+			"TemplateName" : "Billboard",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Clipping",
+					"PropertyTypeName" : "Range"
+				}
+			]
+		},
+		{
+			"TemplateName" : "Lit",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Metallic",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Roughness",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_AO",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_BumpMap",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Emission",
+					"PropertyTypeName" : "Color"
+				},
+				{
+					"PropertyName" : "_Culling",
+					"PropertyTypeName" : "Range"
+				}
+			]
+		},
+		{
+			"TemplateName" : "ParticlesLit",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_InvFade",
+					"PropertyTypeName" : "Range"
+				},
+				{
+					"PropertyName" : "_TintColor",
+					"PropertyTypeName" : "Color"
+				}
+			]
+		},
+		{
+			"TemplateName" : "Unlit",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Culling",
+					"PropertyTypeName" : "Range"
+				}
+			]
+		},
+		{
+			"TemplateName" : "Triplanar",
+			"RequiredProperties" : [
+				{
+					"PropertyName" : "_MainTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_SecTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_ThiTex",
+					"PropertyTypeName" : "Texture"
+				},
+				{
+					"PropertyName" : "_Falloff",
+					"PropertyTypeName" : "Range"
+				},
+				{
+					"PropertyName" : "_Tiling",
+					"PropertyTypeName" : "Range"
+				}
+			]
+		}
+	]
+}
