@@ -20,7 +20,7 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Header
 		{
 			get
 			{
-				if (Signature == BundleType.UnityFS)
+				if (Signature == BundleType.UnityFS || Signature == BundleType.ENCR)
 				{
 					return FileStream.Flags;
 				}

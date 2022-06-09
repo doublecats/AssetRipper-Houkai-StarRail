@@ -8,7 +8,7 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Parser
 		/// <summary>
 		/// 5.2.0 and greater
 		/// </summary>
-		public static bool HasBlobIndex(BundleType signature) => signature == BundleType.UnityFS;
+		public static bool HasBlobIndex(BundleType signature) => signature == BundleType.UnityFS || signature == BundleType.ENCR;
 
 		public void Read(BundleReader reader)
 		{

@@ -10,7 +10,7 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Parser
 		/// <summary>
 		/// 5.2.0 and greater
 		/// </summary>
-		private static bool HasBlocksInfo(BundleType signature) => signature == BundleType.UnityFS;
+		private static bool HasBlocksInfo(BundleType signature) => signature == BundleType.UnityFS || signature == BundleType.ENCR;
 
 		public void Read(BundleReader reader)
 		{

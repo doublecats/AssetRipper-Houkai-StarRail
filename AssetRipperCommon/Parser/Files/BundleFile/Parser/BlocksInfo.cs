@@ -5,9 +5,17 @@ namespace AssetRipper.Core.Parser.Files.BundleFile.Parser
 {
 	public sealed class BlocksInfo : IBundleReadable
 	{
+		/// <summary>
+		/// 5.2.0 and greater
+		/// </summary>
+		private static bool HasHoukaiStarRailBlocksInfo(BundleType signature) => signature == BundleType.ENCR;
+
 		public void Read(BundleReader reader)
 		{
-			Hash.Read(reader);
+			if (!HasHoukaiStarRailBlocksInfo(reader.Signature)) 
+			{
+				Hash.Read(reader);
+			}
 			StorageBlocks = reader.ReadBundleArray<StorageBlock>();
 		}
 
