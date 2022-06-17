@@ -7,5 +7,6 @@ namespace AssetRipper.Core.Parser.Files.BundleFile
 		Lz4 = 2,
 		Lz4HC = 3,
 		Lzham = 4,
+		Lz4WithDecryption = 5,
 	}
 }
