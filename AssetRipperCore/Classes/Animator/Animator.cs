@@ -83,6 +83,7 @@ namespace AssetRipper.Core.Classes.Animator
 				UpdateMode = (AnimatorUpdateMode)reader.ReadInt32();
 			}
 
+			MotionSkeletonMode = reader.ReadInt32();
 			ApplyRootMotion = reader.ReadBoolean();
 
 			if (HasAnimatePhisics(reader.Version))
@@ -182,6 +183,7 @@ namespace AssetRipper.Core.Classes.Animator
 
 		public AnimatorCullingMode CullingMode { get; set; }
 		public AnimatorUpdateMode UpdateMode { get; set; }
+		public int MotionSkeletonMode { get; set; }
 		public bool ApplyRootMotion { get; set; }
 		public bool AnimatePhisics { get; set; }
 		public bool LinearVelocityBlending { get; set; }
