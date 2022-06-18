@@ -183,6 +183,11 @@ namespace AssetRipper.Core.Classes
 				{
 					reader.AlignStream();
 				}
+				EnableSkinning = reader.ReadBoolean();
+				if (IsAlignDirty(reader.Version))
+				{
+					reader.AlignStream();
+				}
 			}
 		}
 
@@ -229,6 +234,7 @@ namespace AssetRipper.Core.Classes
 		public Matrix4x4f[] BindPose { get; set; }
 		public float[] BlendShapeWeights { get; set; }
 		public bool DirtyAABB { get; set; }
+		public bool EnableSkinning { get; set; }
 
 		public const string QualityName = "m_Quality";
 		public const string UpdateWhenOffscreenName = "m_UpdateWhenOffscreen";
