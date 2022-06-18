@@ -1,4 +1,5 @@
 using AssetRipper.Core.Classes.Misc;
+using AssetRipper.Core.Classes.ParticleSystem.Curve;
 using AssetRipper.Core.Interfaces;
 using AssetRipper.Core.IO.Asset;
 using AssetRipper.Core.IO.Extensions;
@@ -219,7 +220,8 @@ namespace AssetRipper.Core.Classes.ParticleSystem.Shape
 			{
 				Texture.Read(reader);
 				TextureClipChannel = reader.ReadInt32();
-				TextureClipThreshold = reader.ReadSingle();
+				TextureClipThresholdMin.Read(reader);
+				TextureClipThresholdMax.Read(reader);
 				TextureUVChannel = reader.ReadInt32();
 				TextureColorAffectsParticles = reader.ReadBoolean();
 				TextureAlphaAffectsParticles = reader.ReadBoolean();
@@ -411,6 +413,8 @@ namespace AssetRipper.Core.Classes.ParticleSystem.Shape
 		public PPtr<Sprite.Sprite> Sprite = new();
 		public PPtr<SpriteRenderer.SpriteRenderer> SpriteRenderer = new();
 		public PPtr<Texture2D.Texture2D> Texture = new();
+		public MinMaxCurve TextureClipThresholdMin = new();
+		public MinMaxCurve TextureClipThresholdMax = new();
 		public MultiModeParameter Radius = new();
 		public MultiModeParameter Arc = new();
 	}
