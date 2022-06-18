@@ -157,6 +157,9 @@ namespace AssetRipper.Core.Classes.AnimationClip
 				MuscleClip = new ClipMuscleConstant();
 				MuscleClip.Read(reader);
 			}
+
+			AclClipData = reader.ReadByteArray();
+
 			if (HasClipBindingConstant(reader.Version))
 			{
 				ClipBindingConstant.Read(reader);
@@ -218,7 +221,7 @@ namespace AssetRipper.Core.Classes.AnimationClip
 			YAMLMappingNode node = base.ExportYAMLRoot(container);
 			node.AddSerializedVersion(ToSerializedVersion(container.ExportVersion));
 			node.Add(LegacyName, GetLegacy(container.Version));
-			node.Add(CompressedName, Compressed);
+			node.Add(CompressedName, MuscleClip.Clip.AclClip.CurveCount == 0 ? Compressed : false);
 			node.Add(UseHighQualityCurveName, UseHightQualityCurve);
 
 			AnimationCurves curves = GetAnimationCurves(container.Version, container.Flags);
@@ -484,6 +487,7 @@ namespace AssetRipper.Core.Classes.AnimationClip
 		public WrapMode WrapMode { get; set; }
 		public uint MuscleClipSize { get; set; }
 		public ClipMuscleConstant MuscleClip { get; set; }
+		public byte[] AclClipData { get; set; }
 		public bool HasGenericRootTransform { get; set; }
 		public bool HasMotionFloatCurves { get; set; }
 		public AnimationEvent[] Events { get; set; }

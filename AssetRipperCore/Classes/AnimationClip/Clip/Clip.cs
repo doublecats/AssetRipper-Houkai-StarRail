@@ -20,6 +20,7 @@ namespace AssetRipper.Core.Classes.AnimationClip.Clip
 		{
 			StreamedClip.Read(reader);
 			DenseClip.Read(reader);
+			AclClip.Read(reader);
 			if (HasConstantClip(reader.Version))
 			{
 				ConstantClip.Read(reader);
@@ -97,6 +98,7 @@ namespace AssetRipper.Core.Classes.AnimationClip.Clip
 		public StreamedClip StreamedClip = new();
 		public DenseClip DenseClip = new();
 		public ConstantClip ConstantClip = new();
+		public AclClip AclClip = new();
 		public ValueArrayConstant Binding = new();
 	}
 }

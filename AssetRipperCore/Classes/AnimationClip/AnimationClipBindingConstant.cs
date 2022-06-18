@@ -17,6 +17,7 @@ namespace AssetRipper.Core.Classes.AnimationClip
 		public AnimationClipBindingConstant() { }
 		public AnimationClipBindingConstant(bool _)
 		{
+			AclBindings = Array.Empty<GenericBinding.GenericBinding>();
 			GenericBindings = Array.Empty<GenericBinding.GenericBinding>();
 			PPtrCurveMapping = Array.Empty<PPtr<Object.Object>>();
 		}
@@ -51,6 +52,16 @@ namespace AssetRipper.Core.Classes.AnimationClip
 
 		public void Read(AssetReader reader)
 		{
+			AclBindings = reader.ReadAssetArray<GenericBinding.GenericBinding>();
+			if (IsAlign(reader.Version))
+			{
+				reader.AlignStream();
+			}
+
+			float key = reader.ReadSingle();
+			float value = reader.ReadSingle();
+			AclRange = new KeyValuePair<float, float>(key, value);
+
 			GenericBindings = reader.ReadAssetArray<GenericBinding.GenericBinding>();
 			if (IsAlign(reader.Version))
 			{
@@ -77,6 +88,8 @@ namespace AssetRipper.Core.Classes.AnimationClip
 			return node;
 		}
 
+		public GenericBinding.GenericBinding[] AclBindings { get; set; }
+		public KeyValuePair<float, float> AclRange { get; set; }
 		public GenericBinding.GenericBinding[] GenericBindings { get; set; }
 		public PPtr<Object.Object>[] PPtrCurveMapping { get; set; }
 

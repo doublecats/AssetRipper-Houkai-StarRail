@@ -105,6 +105,10 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<TargetPath>fmod.dll</TargetPath>
 		</ContentWithTargetPath>
+		<ContentWithTargetPath Include="Libraries\x64\acl.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>acl.dll</TargetPath>
+		</ContentWithTargetPath>
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='DebugMac' or '$(Configuration)'=='ReleaseMac'">
