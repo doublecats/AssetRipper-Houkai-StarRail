@@ -188,6 +188,17 @@ namespace AssetRipper.Core.Classes.ParticleSystemRenderer
 				{
 					AllowRoll = reader.ReadBoolean();
 				}
+				
+				UseOctagonShape = reader.ReadBoolean();
+				Coord0.Read(reader);
+				Coord1.Read(reader);
+				Coord2.Read(reader);
+				Coord3.Read(reader);
+				Coord4.Read(reader);
+				Coord5.Read(reader);
+				Coord6.Read(reader);
+				Coord7.Read(reader);
+				FollowRotation = reader.ReadBoolean();
 
 				if (HasStretching(reader.Version))
 				{
@@ -302,6 +313,8 @@ namespace AssetRipper.Core.Classes.ParticleSystemRenderer
 		public bool EnableGPUInstancing { get; set; }
 		public bool ApplyActiveColorSpace { get; set; }
 		public bool AllowRoll { get; set; }
+		public bool UseOctagonShape { get; set; }
+		public bool FollowRotation { get; set; }
 		public bool FreeformStretching { get; set; }
 		public bool RotateWithStretchDirection { get; set; }
 		public byte[] VertexStreams { get; set; }
@@ -328,6 +341,14 @@ namespace AssetRipper.Core.Classes.ParticleSystemRenderer
 
 		public Vector3f Pivot = new();
 		public Vector3f Flip = new();
+		public Vector3f Coord0 = new();
+		public Vector3f Coord1 = new();
+		public Vector3f Coord2 = new();
+		public Vector3f Coord3 = new();
+		public Vector3f Coord4 = new();
+		public Vector3f Coord5 = new();
+		public Vector3f Coord6 = new();
+		public Vector3f Coord7 = new();
 		public PPtr<Mesh.Mesh> Mesh = new();
 		public PPtr<Mesh.Mesh> Mesh1 = new();
 		public PPtr<Mesh.Mesh> Mesh2 = new();
