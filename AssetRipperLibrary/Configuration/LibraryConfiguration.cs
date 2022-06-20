@@ -55,7 +55,7 @@ namespace AssetRipper.Library.Configuration
 			MeshExportFormat = MeshExportFormat.Native;
 			ScriptExportMode = ScriptExportMode.Decompiled;
 			ScriptLanguageVersion = ScriptLanguageVersion.AutoSafe;
-			ShaderExportMode = ShaderExportMode.Dummy;
+			ShaderExportMode = ShaderExportMode.Disassembly;
 			SpriteExportMode = SpriteExportMode.Native;
 			TerrainExportMode = TerrainExportMode.Native;
 			TextExportMode = TextExportMode.Parse;

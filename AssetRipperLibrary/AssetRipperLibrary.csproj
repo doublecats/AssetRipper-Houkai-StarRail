@@ -57,6 +57,10 @@
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>Libraries\MeshSharp.STL.dll</HintPath>
 		</Reference>
+		<Reference Include="HLSLccWrapper_x64">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>Libraries\HLSLccWrapper_x64.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>

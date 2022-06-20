@@ -51,7 +51,7 @@ namespace AssetRipper.Library.Exporters.Shaders
 				case GPUPlatform.d3d11_9x:
 				case GPUPlatform.d3d11:
 				case GPUPlatform.d3d9:
-					return new ShaderDXExporter(graphicApi);
+					return new ShaderHLSLccExporter(graphicApi);
 
 				case GPUPlatform.vulkan:
 					return new ShaderVulkanExporter();
