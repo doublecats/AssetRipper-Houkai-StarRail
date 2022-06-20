@@ -113,6 +113,16 @@ namespace AssetRipper.Core.Classes.Shader
 			}
 
 			ProgramData = reader.ReadByteArray();
+			byte[] newData = new byte[ProgramData.Length-0x20];
+			for (int i = 0; i < 6; i++) 
+			{
+				newData[i] = ProgramData[i];
+			}
+			for (int j = 0x26; j < ProgramData.Length; j++) 
+			{
+				newData[j-0x20] = ProgramData[j];
+			}
+			ProgramData = newData;
 			reader.AlignStream();
 
 			int sourceMap = reader.ReadInt32();
